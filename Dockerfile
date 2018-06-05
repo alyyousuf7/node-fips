@@ -4,7 +4,7 @@ ARG NODE_VERSION=v8.11.2
 
 RUN apk update \
     && apk upgrade \
-    && apk add wget ca-certificates g++ libstdc++ gzip tar libc-dev ca-certificates python coreutils make linux-headers gnupg \
+    && apk add wget ca-certificates g++ libstdc++ gzip tar libc-dev python coreutils make linux-headers gnupg \
     && cd /root \
     && wget --quiet https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION.tar.gz \
     && wget --quiet https://nodejs.org/dist/$NODE_VERSION/SHASUMS256.txt.asc \
@@ -33,4 +33,4 @@ RUN apk update \
     && cd /root \
     && node -p "process.versions.openssl" | grep "\-fips" \
     && rm -rf .ash_history .wget-hsts node-$NODE_VERSION .gnupg SHASUMS256.txt SHASUMS256.txt.asc \
-    && apk --purge del wget ca-certificates g++ libstdc++ gzip tar libc-dev ca-certificates python coreutils make linux-headers gnupg
+    && apk --purge del wget ca-certificates g++ gzip tar libc-dev python coreutils make linux-headers gnupg
