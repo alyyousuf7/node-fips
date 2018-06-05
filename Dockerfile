@@ -1,6 +1,6 @@
 FROM ninefx/alpine-fips:3.6
 
-ARG NODE_VERSION=v6.11.1
+ARG NODE_VERSION=v8.11.2
 
 RUN apk update \
     && apk upgrade \
