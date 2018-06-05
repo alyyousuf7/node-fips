@@ -31,6 +31,6 @@ RUN apk update \
     && make \
     && make install \
     && cd /root \
-    && node -p "process.versions.openssl" | grep "1.0.2k-fips" \
-    && rm -rf .ash_history .wget-hsts node-v6.11.1 .gnupg SHASUMS256.txt SHASUMS256.txt.asc \
+    && node -p "process.versions.openssl" | grep "\-fips" \
+    && rm -rf .ash_history .wget-hsts node-$NODE_VERSION .gnupg SHASUMS256.txt SHASUMS256.txt.asc \
     && apk --purge del wget ca-certificates g++ libstdc++ gzip tar libc-dev ca-certificates python coreutils make linux-headers gnupg
